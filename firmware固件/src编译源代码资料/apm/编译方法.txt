@@ -1,0 +1,25 @@
+4.3 放入两个.dat文件
+在“OpenblF405RGT6”这个文件夹中，将我们我们写好的2个.dat格式的硬件定义文件拷贝进去，它们分别是详细的硬件定义文件及bootloader定义文件。
+
+4.4 执行waf配置
+完成上述步骤后，接下来即可执行代码编译工程，首先我们要先执行了一次配置命令,确保./waf配置成功。
+输入以下命令
+./waf configure
+
+4.5 关联bootloader
+关联bootloader，执行以下命令，在命令的最后是飞控板卡的名称，也就是之前创建文件夹的名字，我的飞控叫OpenblF405RGT6.
+python3 Tools/scripts/build_bootloaders.py OpenblF405RGT6-bdshot
+或者（无双向dshut版本）
+python3 Tools/scripts/build_bootloaders.py OpenblF405RGT6
+
+4.6 配置板子型号
+有了bootloader后，我们就可以选择需要编译的板子了。此处我编译板子类型为OpenblF405RGT6(大家如果复刻请按需更改名字即可)，输入以下命令，回车执行。
+./waf configure --board OpenblF405RGT6-bdshot
+或者（无双向dshut版本）
+./waf configure --board OpenblF405RGT6
+
+4.7 执行编译、生成固件（copter多旋翼、plane固定翼、tracker AAT自动跟踪天线、sub潜水艇）
+./waf copter
+./waf plane
+./waf antennatracker
+./waf sub

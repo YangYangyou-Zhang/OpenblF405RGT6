@@ -1,0 +1,26 @@
+# 更新软件包列表并升级系统
+sudo apt update && sudo apt upgrade
+
+# 安装基础编译工具
+# 你需要安装git（用于克隆代码）、make（用于构建）、clang（部分测试需要）和python等。
+sudo apt -y install build-essential git curl clang-18 python3 python-is-python3
+
+# 克隆Betaflight源代码
+git clone https://github.com/betaflight/betaflight.git
+
+# 进入源代码目录
+cd betaflight
+
+# 切换到稳定版本（例如4.5.3）
+git checkout 4.5.3
+
+# 这个命令会自动下载并安装所需的工具链
+make arm_sdk_install
+
+# 在首次编译或切换分支后，运行此命令来生成所有目标板的默认配置。
+make configs
+
+# 把OpenblF405RGT6文件夹放到~/betaflight/src/config/configs目录下，随后编译OpenblF405RGT6固件
+make config OpenblF405RGT6
+
+# 在~/betaflight/obj查找编译好的固件betaflight_4.5.3_STM32F405_OpenblF405RGT6.hex

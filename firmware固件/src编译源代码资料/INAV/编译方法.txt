@@ -1,0 +1,25 @@
+# 更新系统并安装必要工具
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install git make ruby cmake gcc-arm-none-eabi
+
+# 克隆 iNav 源代码
+git clone https://github.com/iNavFlight/inav.git
+cd inav
+
+# 创建构建目录并初始化 CMake
+mkdir build && cd build
+cmake
+
+# 把OpenblF405RGT6文件夹放到~/inav/src/main/target/下。
+
+# 编译固件
+cd ~/inav
+# 1. 创建构建目录
+mkdir -p build
+# 2. 运行 CMake 配置
+cmake -B build -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-arm-none-eabi.cmake
+# 3. 编译你的目标（-j4 以4个cpu线程编译）
+cmake --build build --target OpenblF405RGT6 -j4
+
+# 查看固件
+# 一般在~/inav/build目录下
