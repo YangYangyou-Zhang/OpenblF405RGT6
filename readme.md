@@ -18,4 +18,4 @@ Please note: This circuit board is an improved version of matekf405_te, and the 
 
 
 ![p1](p1.png)
-![p1](p1.png)
+![p2](p2.png)
