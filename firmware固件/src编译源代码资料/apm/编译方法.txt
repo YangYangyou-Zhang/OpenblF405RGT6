@@ -23,3 +23,5 @@ python3 Tools/scripts/build_bootloaders.py OpenblF405RGT6
 ./waf plane
 ./waf antennatracker
 ./waf sub
+./waf rover
+
