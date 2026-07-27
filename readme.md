@@ -42,3 +42,4 @@ P：icm42605+spl06
 请注意，本设计为GPL3.0开源协议，允许商用，但需要标明原作者（洋洋柚/B站洋洋柚Y），无人机不是儿童玩具，使用时请遵守相关法律法规。
 Please note that this design is under the GPL3.0 open-source protocol, which allows commercial use, but requires attribution to the original author (yangyangyou/bilibili 洋洋柚Y), and drones are not children's toys. Please abide by relevant laws and regulations when using it. 
 
+
