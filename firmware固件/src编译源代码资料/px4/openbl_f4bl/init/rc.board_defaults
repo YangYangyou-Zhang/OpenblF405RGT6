@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# openbl_f4bl specific board defaults
+# Based on verified APM OpenblF405RGT6 configuration
+#------------------------------------------------------------------------------
+
+param set-default BAT1_V_DIV 29.5
+param set-default BAT1_A_PER_V 31
+
+# system_power unavailable
+param set-default CBRK_SUPPLY_CHK 894281
+
+param set-default SYS_HAS_MAG 0
+param set-default ATT_EN 1

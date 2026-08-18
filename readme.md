@@ -1,11 +1,14 @@
 包含一个5v-dcdc（bec），一个大疆高清图传（可拓展4G数传）直插口，sbus接口，elrs接收机接口，gps接口，
 icm42605/42688p（mpu6500）加速度计，SPL06（bmp280）气压计，12组PWM输出（支持dshut）。
-目前已编译和兼容APM、INAV、BF平台，px4平台代码迁移工作进行中。
+目前已编译和兼容APM、INAV、BF、px4平台代码迁移工作进行中。
 考虑到市面上大部分F405固件因为flash阉割功能，本飞控APM固件已支持空速管，光流计（包含测距仪），板载计算机外部激光雷达或视觉定位。
 It includes a 5v-dcdc (bec), a DJI high-definition image transmission (expandable to 4G data transmission) direct plug-in port, SBUS interface, ELRS receiver interface, and GPS interface,
 ICM42605/42688P (MPU6500) accelerometer, SPL06 (BMP280) barometer, 12 sets of PWM outputs (supporting DSHUT).
-Currently, it has been compiled and is compatible with APM, INAV, and BF platforms, with the code migration to the PX4 platform in progress.
+Currently, it has been compiled and is compatible with APM, INAV, BF, PX4 platform.
 Considering that most F405 firmware on the market has been disabled of its flash function, our flight control APM firmware now supports airspeed tubes, optical flow meters (including rangefinders), and external lidar or visual positioning for on-board computers.
+
+请注意，此飞控的PX4功能由于F405芯片组的flash空间问题进行了阉割，导致此飞控的PX4功能仅可用于探索性研究。bootloader与APM共用
+Please note that the PX4 functionality of this flight control using the F405 chip group's flash space has been阉ced, so this flight control's PX4 functionality is only suitable for exploratory research.The bootloader and APM share the same firmware.
 
 请注意，使用APM固件时，如果不使用sbus接收机想要释放uart2号串口用于接elrs接收机或者数传链路设备时，
 需要修改参数表BRD_ALT_CONFIG 引脚功能复用值为1（默认为0）来禁用sbus和释放uart为通用模式。

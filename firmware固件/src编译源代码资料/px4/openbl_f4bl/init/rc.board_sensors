@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# OpenblF405RGT6 specific board sensors init
+#------------------------------------------------------------------------------
+
+board_adc start
+
+if ! mpu6500 -R 8 -s start
+then
+	if ! mpu6000 -R 8 -s start
+	then
+		icm42688p -R 0 -s start
+	fi
+fi
+
+if ! bmp280 -I -a 0x76 start
+then
+	if ! bmp280 -I -a 0x77 start
+	then
+		if ! spl06 -I -a 0x76 start
+		then
+			spl06 -I -a 0x77 start
+		fi
+	fi
+fi
+
+hmc5883 -I start
